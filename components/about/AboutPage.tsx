@@ -3,7 +3,10 @@
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, BrainCircuit, BriefcaseBusiness, BookOpen, Cloud, Code2, Database, GraduationCap, Handshake, Lightbulb, Linkedin, MessageCircle, Network, Rocket, Share2, Sparkles, Target, Trophy, Users, Wrench } from 'lucide-react'
 import { useRef } from 'react'
-import { team } from './teamData'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { defaultAboutContent, getAboutContent, type AboutContent } from './aboutStore'
+import type { TeamMember } from './teamData'
 
 const ease = [.22, 1, .36, 1] as const
 
@@ -31,9 +34,9 @@ function EcosystemVisual() {
   </div>
 }
 
-function AboutHero() {
+function AboutHero({ hero }: { hero: AboutContent['hero'] }) {
   const reduce = useReducedMotion()
-  return <section className="about-hero"><div className="about-shell about-hero-shell"><motion.div className="about-hero-copy" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5, ease }}><span className="about-eyebrow">ABOUT DSCC</span><h1>More Than a Club.<br /><span>A Community Building Tomorrow.</span></h1><p>The Data Science &amp; Cloud Computing Club at ENSAO is a student-led community where curious minds learn, experiment, collaborate, and turn ideas into real experiences.</p><div className="about-actions"><a className="about-button about-button-primary" href="#team">Meet Our Team <ArrowRight size={17} /></a><a className="about-button about-button-secondary" href="#journey">Explore Our Journey <ArrowRight size={16} /></a></div></motion.div><motion.div className="about-hero-visual-wrap" initial={{ opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .6, delay: reduce ? 0 : .12, ease }}><EcosystemVisual /></motion.div></div></section>
+  return <section className="about-hero"><div className="about-shell about-hero-shell"><motion.div className="about-hero-copy" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5, ease }}><span className="about-eyebrow">{hero.eyebrow}</span><h1>{hero.title}<br /><span>{hero.highlightedTitle}</span></h1><p>{hero.description}</p><div className="about-actions"><a className="about-button about-button-primary" href={hero.primaryButton.href}>{hero.primaryButton.label} <ArrowRight size={17} /></a><a className="about-button about-button-secondary" href={hero.secondaryButton.href}>{hero.secondaryButton.label} <ArrowRight size={16} /></a></div></motion.div><motion.div className="about-hero-visual-wrap" initial={{ opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .6, delay: reduce ? 0 : .12, ease }}>{hero.image ? <img className="about-hero-custom-image" src={hero.image} alt="" /> : <EcosystemVisual />}</motion.div></div></section>
 }
 
 const capabilities = [
@@ -92,19 +95,21 @@ function Philosophy() {
   return <section className="about-philosophy"><div className="about-philosophy-mark">“</div><Reveal><span className="about-eyebrow">OUR PHILOSOPHY</span><h2>Students Today.<br /><span>Builders Tomorrow.</span></h2><p>We believe the best way to understand technology is to explore it, build with it, and share what we learn.</p></Reveal></section>
 }
 
-function TeamCard({ member, index }: { member: typeof team[number]; index: number }) {
+function TeamCard({ member, index }: { member: TeamMember; index: number }) {
   const hasProfile = Boolean(member.name && member.image)
   return <motion.article className={`about-team-card ${index === 0 ? 'about-team-president' : ''}`} whileHover={{ y: -4 }} transition={{ duration: .22 }}><div className="about-team-portrait">{hasProfile ? <img src={member.image} alt={member.name} /> : <span>{member.role.slice(0, 1)}</span>}</div><div className="about-team-meta"><h3>{member.name || 'Profile coming soon'}</h3><p>{member.role}</p>{member.description && <small>{member.description}</small>}{member.linkedin && <a href={member.linkedin} aria-label={`${member.name} on LinkedIn`}><Linkedin size={15} /></a>}</div></motion.article>
 }
 
-function TeamSection() {
-  return <section className="about-section about-team" id="team"><div className="about-shell"><Reveal><SectionIntro eyebrow="THE PEOPLE BEHIND DSCC" title="Meet the Team" >The students turning ideas into workshops, projects, events and opportunities for the DSCC community.</SectionIntro></Reveal><div className="about-team-grid">{team.map((member, index) => <Reveal key={member.role} delay={index * .07}><TeamCard member={member} index={index} /></Reveal>)}</div><div className="about-team-actions"><p>Approved team profiles can be added in <code>components/about/teamData.ts</code>.</p><a className="about-text-link" href="#team">Meet the Full Team <ArrowRight size={15} /></a></div></div></section>
+function TeamSection({ members }: { members: AboutContent['team'] }) {
+  return <section className="about-section about-team" id="team"><div className="about-shell"><Reveal><SectionIntro eyebrow="THE PEOPLE BEHIND DSCC" title="Meet the Team" >The students turning ideas into workshops, projects, events and opportunities for the DSCC community.</SectionIntro></Reveal><div className="about-team-grid">{members.map((member, index) => <Reveal key={`${member.role}-${index}`} delay={index * .07}><TeamCard member={member} index={index} /></Reveal>)}</div><div className="about-team-actions"><p>Team profiles are managed from the DSCC admin workspace.</p><a className="about-text-link" href="#team">Meet the Full Team <ArrowRight size={15} /></a></div></div></section>
 }
 
 function FinalCta() {
-  return <section className="about-final-cta"><div className="about-shell"><Reveal><span className="about-eyebrow">START HERE</span><h2>Your Journey Could Start Here.</h2><p>Learn with us. Build with us. Grow with us.</p><div className="about-actions"><a className="about-button about-button-primary" href="/contact">Join DSCC <ArrowRight size={17} /></a><a className="about-button about-button-secondary" href="/events">Explore Events <ArrowRight size={16} /></a></div></Reveal></div></section>
+  return <section className="about-final-cta"><div className="about-shell"><Reveal><span className="about-eyebrow">START HERE</span><h2>Your Journey Could Start Here.</h2><p>Learn with us. Build with us. Grow with us.</p><div className="about-actions"><Link className="about-button about-button-primary" href="/contact">Join DSCC <ArrowRight size={17} /></Link><Link className="about-button about-button-secondary" href="/events">Explore Events <ArrowRight size={16} /></Link></div></Reveal></div></section>
 }
 
 export default function AboutPage() {
-  return <div className="about-page"><AboutHero /><WhoWeAre /><WhatWeDo /><TechEcosystem /><ClubJourney /><ClubExperience /><Philosophy /><Values /><TeamSection /><FinalCta /></div>
+  const [content, setContent] = useState(defaultAboutContent)
+  useEffect(() => setContent(getAboutContent()), [])
+  return <div className="about-page"><AboutHero hero={content.hero} /><WhoWeAre /><WhatWeDo /><TechEcosystem /><ClubJourney /><ClubExperience /><Philosophy /><Values /><TeamSection members={content.team} /><FinalCta /></div>
 }

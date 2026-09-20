@@ -2,6 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Code2, Megaphone, MessageCircle, Network, Users } from 'lucide-react'
+import Link from 'next/link'
 import { useRef } from 'react'
 
 const reveal = { duration: .45, ease: [.22, 1, .36, 1] as const }
@@ -53,8 +54,8 @@ export default function FeaturedAnnouncement() {
           {connectionTags.map(({ label, icon: Icon }) => <span className="announcement-tag" key={label}><Icon size={15} strokeWidth={2} aria-hidden="true" />{label}</span>)}
         </div>
         <div className="announcement-actions">
-          <a className="announcement-primary" href="/contact">Meet the Community <ArrowRight size={17} /></a>
-          <a className="announcement-secondary-link" href="/announcements">View all announcements <ArrowRight size={15} /></a>
+          <Link className="announcement-primary" href="/contact">Meet the Community <ArrowRight size={17} /></Link>
+          <Link className="announcement-secondary-link" href="/announcements">View all announcements <ArrowRight size={15} /></Link>
         </div>
       </motion.div>
     </div>
