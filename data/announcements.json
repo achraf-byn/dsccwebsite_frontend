@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "slug": "welcome-to-dscc-family",
+    "title": "Welcome to the DSCC Family.",
+    "description": "Meet other members, share your ideas, ask questions and take part in what we are building together.",
+    "content": "DSCC is a student-led community for curious minds who want to learn, experiment, collaborate and turn ideas into real experiences.\n\nStart by introducing yourself, joining a workshop or sharing a project you are exploring. Every connection can become a new idea, a new project or a new opportunity.\n\nMeet students who are exploring the same technologies, share questions and resources with the community, and take part in workshops, projects and events throughout the year.",
+    "category": "General",
+    "date": "2026-09-18",
+    "image": "",
+    "pinned": true
+  },
+  {
+    "id": 2,
+    "slug": "community-outing",
+    "title": "Community Outing",
+    "description": "A day to connect beyond workshops, meet new members and create memories together.",
+    "content": "We are making space for the conversations that happen away from the screen. The DSCC community outing is an opportunity to meet new members and spend time together outside our usual sessions.\n\nMore details about the meeting point and schedule will be shared with registered participants before the day.",
+    "category": "Events",
+    "date": "2026-09-12",
+    "image": "",
+    "pinned": false
+  },
+  {
+    "id": 3,
+    "slug": "new-season-of-workshops",
+    "title": "A new season of workshops is coming",
+    "description": "Practical sessions across data, AI and cloud computing are taking shape for the new season.",
+    "content": "This season brings a hands-on rhythm to the DSCC calendar, with sessions designed to help you move from concepts to working experiments.\n\nBring your questions, your laptop and your curiosity. Workshop dates and registration details will be announced as each session is confirmed.",
+    "category": "Workshops",
+    "date": "2026-09-06",
+    "image": "",
+    "pinned": false
+  },
+  {
+    "id": 4,
+    "slug": "openlab-project-ideas",
+    "title": "OpenLab project ideas are open",
+    "description": "Have an idea worth exploring? Bring it to OpenLab and find collaborators to help move it forward.",
+    "content": "OpenLab is a shared space for turning interesting questions into practical student projects. You do not need a complete plan before you start.\n\nShare what you would like to explore, the skills you want to practice and the kind of collaborators you are looking for.",
+    "category": "Opportunities",
+    "date": "2026-08-28",
+    "image": "",
+    "pinned": false
+  }
+]

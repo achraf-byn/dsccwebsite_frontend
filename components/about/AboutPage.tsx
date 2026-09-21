@@ -1,12 +1,14 @@
 'use client'
 
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import { ArrowRight, BrainCircuit, BriefcaseBusiness, BookOpen, Cloud, Code2, Database, GraduationCap, Handshake, Lightbulb, Linkedin, MessageCircle, Network, Rocket, Share2, Sparkles, Target, Trophy, Users, Wrench } from 'lucide-react'
+import { ArrowRight, BrainCircuit, BriefcaseBusiness, BookOpen, Cloud, Code2, Database, GraduationCap, Handshake, Lightbulb, MessageCircle, Network, Rocket, Share2, Sparkles, Target, Trophy, Users, Wrench } from 'lucide-react'
+import Image from 'next/image'
 import { useRef } from 'react'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { defaultAboutContent, getAboutContent, type AboutContent } from './aboutStore'
-import type { TeamMember } from './teamData'
+import TeamCarousel from './TeamCarousel'
+import { getTeamMembers } from '@/lib/team'
+import logoImage from '@/pictures/logo.png'
 
 const ease = [.22, 1, .36, 1] as const
 
@@ -25,7 +27,7 @@ function EcosystemVisual() {
   return <div className="about-ecosystem" aria-label="DSCC ecosystem from students to impact">
     <div className="about-ecosystem-orbit about-ecosystem-orbit-one" /><div className="about-ecosystem-orbit about-ecosystem-orbit-two" />
     <svg className="about-ecosystem-lines" viewBox="0 0 520 460" fill="none" aria-hidden="true"><path d="M93 102C164 143 191 206 260 230S361 283 426 354" /><path d="M426 101C354 143 327 202 260 230S155 282 93 354" /><path d="M260 50V410" /><circle cx="93" cy="102" r="4" /><circle cx="426" cy="101" r="4" /><circle cx="93" cy="354" r="4" /><circle cx="426" cy="354" r="4" /></svg>
-    <div className="about-eco-node about-eco-center"><Sparkles size={17} /><strong>DSCC</strong><span>COMMUNITY</span></div>
+    <div className="about-eco-node about-eco-center"><Image src={logoImage} alt="DSCC club logo" width={88} height={88} className="about-eco-logo" /></div>
     <div className="about-eco-node about-eco-students"><Users size={17} /><span>Students</span></div>
     <div className="about-eco-node about-eco-learn"><BookOpen size={17} /><span>Learn</span></div>
     <div className="about-eco-node about-eco-build"><Code2 size={17} /><span>Build</span></div>
@@ -95,21 +97,12 @@ function Philosophy() {
   return <section className="about-philosophy"><div className="about-philosophy-mark">“</div><Reveal><span className="about-eyebrow">OUR PHILOSOPHY</span><h2>Students Today.<br /><span>Builders Tomorrow.</span></h2><p>We believe the best way to understand technology is to explore it, build with it, and share what we learn.</p></Reveal></section>
 }
 
-function TeamCard({ member, index }: { member: TeamMember; index: number }) {
-  const hasProfile = Boolean(member.name && member.image)
-  return <motion.article className={`about-team-card ${index === 0 ? 'about-team-president' : ''}`} whileHover={{ y: -4 }} transition={{ duration: .22 }}><div className="about-team-portrait">{hasProfile ? <img src={member.image} alt={member.name} /> : <span>{member.role.slice(0, 1)}</span>}</div><div className="about-team-meta"><h3>{member.name || 'Profile coming soon'}</h3><p>{member.role}</p>{member.description && <small>{member.description}</small>}{member.linkedin && <a href={member.linkedin} aria-label={`${member.name} on LinkedIn`}><Linkedin size={15} /></a>}</div></motion.article>
-}
-
-function TeamSection({ members }: { members: AboutContent['team'] }) {
-  return <section className="about-section about-team" id="team"><div className="about-shell"><Reveal><SectionIntro eyebrow="THE PEOPLE BEHIND DSCC" title="Meet the Team" >The students turning ideas into workshops, projects, events and opportunities for the DSCC community.</SectionIntro></Reveal><div className="about-team-grid">{members.map((member, index) => <Reveal key={`${member.role}-${index}`} delay={index * .07}><TeamCard member={member} index={index} /></Reveal>)}</div><div className="about-team-actions"><p>Team profiles are managed from the DSCC admin workspace.</p><a className="about-text-link" href="#team">Meet the Full Team <ArrowRight size={15} /></a></div></div></section>
-}
-
-function FinalCta() {
-  return <section className="about-final-cta"><div className="about-shell"><Reveal><span className="about-eyebrow">START HERE</span><h2>Your Journey Could Start Here.</h2><p>Learn with us. Build with us. Grow with us.</p><div className="about-actions"><Link className="about-button about-button-primary" href="/contact">Join DSCC <ArrowRight size={17} /></Link><Link className="about-button about-button-secondary" href="/events">Explore Events <ArrowRight size={16} /></Link></div></Reveal></div></section>
+function TeamSection() {
+  return <section className="about-section about-team" id="team"><div className="about-shell"><Reveal><SectionIntro eyebrow="THE PEOPLE BEHIND DSCC" title="Meet the Team" >The students turning ideas into workshops, projects, events and opportunities for the DSCC community.</SectionIntro></Reveal><TeamCarousel members={getTeamMembers()} /></div></section>
 }
 
 export default function AboutPage() {
   const [content, setContent] = useState(defaultAboutContent)
   useEffect(() => setContent(getAboutContent()), [])
-  return <div className="about-page"><AboutHero hero={content.hero} /><WhoWeAre /><WhatWeDo /><TechEcosystem /><ClubJourney /><ClubExperience /><Philosophy /><Values /><TeamSection members={content.team} /><FinalCta /></div>
+  return <div className="about-page"><AboutHero hero={content.hero} /><WhoWeAre /><WhatWeDo /><TechEcosystem /><ClubJourney /><ClubExperience /><Philosophy /><Values /><TeamSection /></div>
 }

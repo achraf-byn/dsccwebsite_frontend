@@ -1,0 +1,16 @@
+[
+  { "name": "Haytham Rafai", "role": "Président", "image": "", "initial": "H", "linkedinUrl": null, "order": 1 },
+  { "name": "Mohamed Cheikh", "role": "Vice-Président", "image": "", "initial": "M", "linkedinUrl": null, "order": 2 },
+  { "name": "Chahd Brahmi", "role": "Responsable Ressources Humaines", "image": "", "initial": "C", "linkedinUrl": null, "order": 3 },
+  { "name": "Ayat Belhadi", "role": "Trésorière", "image": "", "initial": "A", "linkedinUrl": null, "order": 4 },
+  { "name": "Doae Rahhaoui", "role": "Secrétaire Générale", "image": "", "initial": "D", "linkedinUrl": null, "order": 5 },
+  { "name": "Achraf Resoun", "role": "Responsable Média & Communication", "image": "", "initial": "A", "linkedinUrl": null, "order": 6 },
+  { "name": "Ahmed Echnouai", "role": "Responsable Design & Identité Visuelle", "image": "", "initial": "A", "linkedinUrl": null, "order": 7 },
+  { "name": "Anas Ouddoumass", "role": "Responsable Montage Vidéo", "image": "", "initial": "A", "linkedinUrl": null, "order": 8 },
+  { "name": "Achraf Bayane", "role": "Responsable Formation & Bootcamp", "image": "", "initial": "A", "linkedinUrl": null, "order": 9 },
+  { "name": "Houda Soultana", "role": "Responsable Rédaction & Contenu", "image": "", "initial": "H", "linkedinUrl": null, "order": 10 },
+  { "name": "Hiba Akhmoul", "role": "Responsable Sponsoring & Partenariats", "image": "", "initial": "H", "linkedinUrl": null, "order": 11 },
+  { "name": "Zayd Ajebli", "role": "Responsable Organisation & Événements", "image": "", "initial": "Z", "linkedinUrl": null, "order": 12 },
+  { "name": "Ibtihal Merimi", "role": "Responsable Compétitions", "image": "", "initial": "I", "linkedinUrl": null, "order": 13 },
+  { "name": "Douae El Haissouf", "role": "Responsable Maison des Sciences", "image": "", "initial": "D", "linkedinUrl": null, "order": 14 }
+]

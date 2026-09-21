@@ -1,0 +1,5 @@
+[
+  { "id": 1, "title": "Data stories", "description": "Small experiments that turn messy questions into clear, useful insights.", "tags": ["Python", "Data", "Storytelling"], "status": "Exploring", "link": "" },
+  { "id": 2, "title": "Cloud playground", "description": "A shared space to learn how services connect, scale and support real projects.", "tags": ["Cloud", "DevOps", "Systems"], "status": "Building", "link": "" },
+  { "id": 3, "title": "Community builds", "description": "Student-led ideas shaped through collaboration, feedback and hands-on practice.", "tags": ["Open source", "Teamwork"], "status": "Growing", "link": "" }
+]

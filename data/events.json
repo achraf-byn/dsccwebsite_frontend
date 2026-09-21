@@ -1,0 +1,6 @@
+[
+  { "id": 1, "title": "DSCC Community Outing", "image": "", "date": "2026-09-27", "location": "ENSAO", "category": "Community", "description": "A day to meet new members, reconnect and make room for the conversations beyond workshops.", "link": "" },
+  { "id": 2, "title": "Cloud Foundations Workshop", "image": "", "date": "2026-10-04", "location": "ENSAO Lab", "category": "Workshop", "description": "Build a practical foundation in cloud concepts through guided experiments and shared learning.", "link": "" },
+  { "id": 3, "title": "Data Challenge Meetup", "image": "", "date": "2026-10-18", "location": "To be announced", "category": "Competition", "description": "Bring your curiosity and work with other students on a focused data problem.", "link": "" },
+  { "id": 4, "title": "DSCC Kickoff Meetup", "image": "", "date": "2026-08-14", "location": "ENSAO", "category": "Community", "description": "The season began with introductions, shared questions and a first look at what we can build together.", "link": "", "past": true }
+]

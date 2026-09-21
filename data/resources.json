@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Data Science", "description": "A place for datasets, notebooks and learning references.", "category": "Data Science", "type": "Collection", "url": "" },
+  { "id": 2, "name": "Artificial Intelligence", "description": "Notes and useful starting points for AI and machine learning.", "category": "Artificial Intelligence", "type": "Collection", "url": "" },
+  { "id": 3, "name": "Cloud Computing", "description": "Resources for understanding cloud platforms and architecture.", "category": "Cloud Computing", "type": "Collection", "url": "" },
+  { "id": 4, "name": "Data Engineering", "description": "Foundations for moving, transforming and working with data.", "category": "Data Engineering", "type": "Collection", "url": "" },
+  { "id": 5, "name": "Development", "description": "Practical references for building, shipping and collaborating.", "category": "Development", "type": "Collection", "url": "" },
+  { "id": 6, "name": "Workshops", "description": "Materials from shared sessions and hands-on activities.", "category": "Workshops", "type": "Collection", "url": "" }
+]
