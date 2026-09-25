@@ -1,14 +1,15 @@
-import rawTeam from '@/data/team.json'
+import rawTeam from '@/src/data/team.json'
 
 export type PublicTeamMember = {
+  id: number
   name: string
   role: string
-  image: string
-  initial: string
-  linkedinUrl: string | null
+  image: string | null
+  linkedin: string | null
   order: number
 }
 
 export function getTeamMembers(): PublicTeamMember[] {
-  return [...rawTeam].sort((a, b) => a.order - b.order)
+  const members: PublicTeamMember[] = rawTeam
+  return [...members].sort((a, b) => a.order - b.order || a.id - b.id)
 }

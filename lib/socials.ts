@@ -1,6 +1,6 @@
+import { clubData } from './club'
+
 export const socialUrls = {
-  instagram: 'https://www.instagram.com/clubdscc/',
-  linkedin: '',
-  tiktok: '',
-  x: '',
+  ...clubData.socials,
+  email: clubData.email,
 } as const

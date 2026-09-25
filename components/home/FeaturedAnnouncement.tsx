@@ -1,5 +1,6 @@
 'use client'
 
+import { T } from '@/lib/i18n/LanguageProvider'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Code2, Megaphone, MessageCircle, Network, Users } from 'lucide-react'
 import Link from 'next/link'
@@ -36,26 +37,26 @@ export default function FeaturedAnnouncement() {
           <path d="M250 181C274 139 307 103 361 88" />
           <circle cx="128" cy="91" r="4" /><circle cx="96" cy="240" r="4" /><circle cx="405" cy="110" r="4" /><circle cx="402" cy="213" r="4" />
         </svg>
-        {members.map(({ initials, className }, index) => <motion.div className={`announcement-member ${className}`} key={initials} initial={{ opacity: 0, scale: .65 }} animate={isInView ? { opacity: 1, scale: 1 } : undefined} transition={{ ...reveal, delay: prefersReducedMotion ? 0 : .16 + index * .08 }}><span>{initials}</span></motion.div>)}
+        {members.map(({ initials, className }, index) => <motion.div className={`announcement-member ${className}`} key={initials} initial={{ opacity: 0, scale: .65 }} animate={isInView ? { opacity: 1, scale: 1 } : undefined} transition={{ ...reveal, delay: prefersReducedMotion ? 0 : .16 + index * .08 }}><span><T>{initials}</T></span></motion.div>)}
         <motion.div className="announcement-core" animate={isInView && !prefersReducedMotion ? { y: [0, -4, 0] } : undefined} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}>
-          <strong>DSCC</strong><span>COMMUNITY</span>
+          <strong><T>DSCC</T></strong><span><T>COMMUNITY</T></span>
         </motion.div>
         <div className="announcement-bubble announcement-bubble-one"><MessageCircle size={16} /></div>
         <div className="announcement-bubble announcement-bubble-two"><Code2 size={15} /></div>
-        <span className="announcement-visual-caption"><i /> PEOPLE · IDEAS · ACTION</span>
+        <span className="announcement-visual-caption"><i /><T> PEOPLE · IDEAS · ACTION</T></span>
       </motion.div>
 
       <motion.div className="announcement-content" ref={ref} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : undefined} transition={reveal}>
-        <div className="announcement-label"><Megaphone size={15} strokeWidth={1.9} aria-hidden="true" /><span>LATEST ANNOUNCEMENT</span></div>
-        <h2 id="announcement-title">Welcome to the <span>DSCC Family.</span></h2>
-        <p className="announcement-lead">New here? Don&apos;t stay on the sidelines. Introduce yourself, meet other members, share your ideas, ask questions, and take part in what we&apos;re building together.</p>
-        <p className="announcement-secondary">Every connection can become a new idea, a new project, or a new opportunity.</p>
+        <div className="announcement-label"><Megaphone size={15} strokeWidth={1.9} aria-hidden="true" /><span><T>LATEST ANNOUNCEMENT</T></span></div>
+        <h2 id="announcement-title"><T>Welcome to the </T><span><T>DSCC Family.</T></span></h2>
+        <p className="announcement-lead"><T>New here? Don&apos;t stay on the sidelines. Introduce yourself, meet other members, share your ideas, ask questions, and take part in what we&apos;re building together.</T></p>
+        <p className="announcement-secondary"><T>Every connection can become a new idea, a new project, or a new opportunity.</T></p>
         <div className="announcement-tags" aria-label="Ways to connect with the community">
-          {connectionTags.map(({ label, icon: Icon }) => <span className="announcement-tag" key={label}><Icon size={15} strokeWidth={2} aria-hidden="true" />{label}</span>)}
+          {connectionTags.map(({ label, icon: Icon }) => <span className="announcement-tag" key={label}><Icon size={15} strokeWidth={2} aria-hidden="true" /><T>{label}</T></span>)}
         </div>
         <div className="announcement-actions">
-          <Link className="announcement-primary" href="/contact">Meet the Community <ArrowRight size={17} /></Link>
-          <Link className="announcement-secondary-link" href="/announcements">View all announcements <ArrowRight size={15} /></Link>
+          <Link className="announcement-primary" href="/contact"><T>Meet the Community </T><ArrowRight size={17} /></Link>
+          <Link className="announcement-secondary-link" href="/announcements"><T>View all announcements </T><ArrowRight size={15} /></Link>
         </div>
       </motion.div>
     </div>

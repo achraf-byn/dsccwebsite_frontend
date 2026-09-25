@@ -1,5 +1,6 @@
 'use client'
 
+import { T } from '@/lib/i18n/LanguageProvider'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
@@ -41,11 +42,11 @@ function FloatingElement({ className, strength = 8, children }: { className: str
     return () => window.removeEventListener('mousemove', onMove)
   }, [canParallax, prefersReducedMotion, strength, x, y])
 
-  return <motion.div className={`hero-floating ${className}`} style={canParallax && !prefersReducedMotion ? { x: springX, y: springY } : undefined}>{children}</motion.div>
+  return <motion.div className={`hero-floating ${className}`} style={canParallax && !prefersReducedMotion ? { x: springX, y: springY } : undefined}><T>{children}</T></motion.div>
 }
 
 function CommunityAvatars() {
-  return <div className="hero-community"><div className="hero-avatar-stack" aria-hidden="true"><span>Y</span><span>S</span><span>O</span><span>I</span><span>+</span></div><span>A community of curious minds</span></div>
+  return <div className="hero-community"><div className="hero-avatar-stack" aria-hidden="true"><span><T>Y</T></span><span><T>S</T></span><span><T>O</T></span><span><T>I</T></span><span>+</span></div><span><T>A community of curious minds</T></span></div>
 }
 
 const features = [
@@ -72,7 +73,7 @@ function FeatureStrip() {
   return <div className="hero-features" ref={ref} aria-label="What DSCC helps students do">
     {features.map(({ title, description, icon: Icon }, index) => <motion.div className="hero-feature" key={title} initial={isMobile ? { opacity: 0, y: 24, scale: .97 } : { opacity: 0, y: 18 }} animate={isInView ? (isMobile ? { opacity: 1, y: 0, scale: 1 } : { opacity: 1, y: 0 }) : undefined} transition={{ ...entrance, delay: prefersReducedMotion ? 0 : index * (isMobile ? .1 : .08) }}>
       <div className="hero-feature-icon"><Icon size={20} strokeWidth={1.8} aria-hidden="true" /></div>
-      <div><h2>{title}</h2><p>{description}</p></div>
+      <div><h2><T>{title}</T></h2><p><T>{description}</T></p></div>
     </motion.div>)}
   </div>
 }
@@ -136,20 +137,20 @@ export default function Hero() {
       <div className="hero-micro-dot hero-micro-dot-one" />
       <div className="hero-micro-dot hero-micro-dot-two" />
       <div className="hero-micro-ring" />
-      <div className="hero-side-note"><span>FROM STUDENTS</span><span>TO A BRIGHTER</span><span>TOMORROW</span><i /></div>
+      <div className="hero-side-note"><span><T>FROM STUDENTS</T></span><span><T>TO A BRIGHTER</T></span><span><T>TOMORROW</T></span><i /></div>
       <div className="hero-wave" />
     </div>
     <div className="hero-container">
       <motion.div className="hero-copy" style={isMobile && !prefersReducedMotion ? { y: textScrollY } : undefined}>
         <motion.div className="hero-eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={entrance}>
-          <span>LEARN</span><i>·</i><span>BUILD</span><i>·</i><span>CONNECT</span><i>·</i><span>GROW</span>
-          <small>ENSAO · STUDENT CLUB</small>
+          <span><T>LEARN</T></span><i>·</i><span><T>BUILD</T></span><i>·</i><span><T>CONNECT</T></span><i>·</i><span><T>GROW</T></span>
+          <small><T>ENSAO · STUDENT CLUB</T></small>
         </motion.div>
-        <h1 id="hero-title">{lines.map((line, index) => <motion.span key={line.text} className={`hero-line ${line.className}`} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ ...entrance, delay: prefersReducedMotion ? 0 : .12 + index * .1 }}>{line.text}</motion.span>)}</h1>
-        <motion.p className="hero-description" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ ...entrance, delay: prefersReducedMotion ? 0 : .46 }}>A student community building real skills for a brighter digital tomorrow.</motion.p>
+        <h1 id="hero-title">{lines.map((line, index) => <motion.span key={line.text} className={`hero-line ${line.className}`} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ ...entrance, delay: prefersReducedMotion ? 0 : .12 + index * .1 }}><T>{line.text}</T></motion.span>)}</h1>
+        <motion.p className="hero-description" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ ...entrance, delay: prefersReducedMotion ? 0 : .46 }}><T>A student community building real skills for a brighter digital tomorrow.</T></motion.p>
         <motion.div className="hero-actions" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ ...entrance, delay: prefersReducedMotion ? 0 : .56 }}>
-          <Link className="hero-button hero-button-primary" href="/about">Explore Us <ArrowRight size={17} /></Link>
-          <Link className="hero-button hero-button-secondary" href="/events">Explore Events <ArrowUpRight size={16} /></Link>
+          <Link className="hero-button hero-button-primary" href="/about"><T>Explore Us </T><ArrowRight size={17} /></Link>
+          <Link className="hero-button hero-button-secondary" href="/events"><T>Explore Events </T><ArrowUpRight size={16} /></Link>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...entrance, delay: prefersReducedMotion ? 0 : .66 }}><CommunityAvatars /></motion.div>
       </motion.div>

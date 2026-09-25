@@ -13,5 +13,5 @@ const manrope = Manrope({
 export const metadata: Metadata = { title: 'DSCC — Data Science & Cloud Computing Club' }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={manrope.variable} suppressHydrationWarning><body><ClientShell>{children}</ClientShell></body></html>
+  return <html lang="en" dir="ltr" className={manrope.variable} suppressHydrationWarning><body><ClientShell>{children}</ClientShell></body></html>
 }

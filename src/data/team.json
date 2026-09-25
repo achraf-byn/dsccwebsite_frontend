@@ -1,0 +1,16 @@
+[
+  { "id": 1, "name": "Haytham Rafai", "role": "Président", "image": null, "linkedin": "https://www.linkedin.com/in/haytham-rafai-363727296/", "order": 1 },
+  { "id": 2, "name": "Mohamed Cheikh", "role": "Vice-Président", "image": null, "linkedin": "https://www.linkedin.com/in/mohammed-cheikh-431664294/", "order": 2 },
+  { "id": 3, "name": "Chahd Brahmi", "role": "Responsable Ressources Humaines", "image": null, "linkedin": "https://www.linkedin.com/in/chahd-brahmi-20b19935a/", "order": 3 },
+  { "id": 4, "name": "Ayat Belhadi", "role": "Trésorière", "image": null, "linkedin": "https://www.linkedin.com/in/ayat-belhadi-5bb3463a2/", "order": 4 },
+  { "id": 5, "name": "Doae Rahhaoui", "role": "Secrétaire Générale", "image": null, "linkedin": "https://www.linkedin.com/in/doae-rahhaoui-bb8142385/", "order": 5 },
+  { "id": 6, "name": "Achraf Resoun", "role": "Responsable Média & Communication", "image": null, "linkedin": "https://www.linkedin.com/in/achraf-resoun/", "order": 6 },
+  { "id": 7, "name": "Ahmed Echnouai", "role": "Responsable Design & Identité Visuelle", "image": null, "linkedin": "https://www.linkedin.com/in/ahmed-echnouai-528631337/", "order": 7 },
+  { "id": 8, "name": "Anas Ouddoumass", "role": "Responsable Montage Vidéo", "image": null, "linkedin": "https://www.linkedin.com/in/anas-o-28712b2a0/", "order": 8 },
+  { "id": 9, "name": "Achraf Bayane", "role": "Responsable Formation & Bootcamp", "image": null, "linkedin": "https://www.linkedin.com/in/achraf-bayane-591643384", "order": 9 },
+  { "id": 10, "name": "Houda Soultana", "role": "Responsable Rédaction & Contenu", "image": null, "linkedin": "https://www.linkedin.com/in/houda-soultana-17048032a/", "order": 10 },
+  { "id": 11, "name": "Hiba Akhmoul", "role": "Responsable Sponsoring & Partenariats", "image": null, "linkedin": "https://www.linkedin.com/in/hiba-akhmoul-aa0733272/", "order": 11 },
+  { "id": 12, "name": "Zayd Ajebli", "role": "Responsable Organisation & Événements", "image": null, "linkedin": "https://www.linkedin.com/in/zayd-ajebli/", "order": 12 },
+  { "id": 13, "name": "Ibtihal Merimi", "role": "Responsable Compétitions", "image": null, "linkedin": "https://www.linkedin.com/in/ibtihal-merimi-721900320/", "order": 13 },
+  { "id": 14, "name": "Douae El Haissouf", "role": "Responsable Maison des Sciences", "image": null, "linkedin": "https://www.linkedin.com/in/douae-el-haissouf-0555b7280/", "order": 14 }
+]

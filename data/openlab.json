@@ -1,5 +1,54 @@
 [
-  { "id": 1, "title": "Data stories", "description": "Small experiments that turn messy questions into clear, useful insights.", "tags": ["Python", "Data", "Storytelling"], "status": "Exploring", "link": "" },
-  { "id": 2, "title": "Cloud playground", "description": "A shared space to learn how services connect, scale and support real projects.", "tags": ["Cloud", "DevOps", "Systems"], "status": "Building", "link": "" },
-  { "id": 3, "title": "Community builds", "description": "Student-led ideas shaped through collaboration, feedback and hands-on practice.", "tags": ["Open source", "Teamwork"], "status": "Growing", "link": "" }
+  {
+    "id": 1,
+    "slug": "example-project",
+    "title": "Example Project",
+    "description": "Short card description.",
+    "content": "Full explanation of the project, experiment or research work.",
+    "image": "/images/openlab/example-project.jpg",
+    "category": "Artificial Intelligence",
+    "technologies": ["Python", "PyTorch"],
+    "status": "In Progress",
+    "githubUrl": null,
+    "demoUrl": null
+  },
+  {
+    "id": 2,
+    "slug": "data-stories",
+    "title": "Data Stories",
+    "description": "Small experiments that turn messy questions into clear, useful insights.",
+    "content": "Data Stories is an exploratory research project focused on uncovering hidden patterns in public datasets. Through data cleaning, interactive visualization, and statistical modeling, community members build open-source web dashboards that communicate complex data trends clearly to non-technical audiences.",
+    "image": "/images/openlab/data-stories.jpg",
+    "category": "Data Science",
+    "technologies": ["Python", "Pandas", "Streamlit", "Plotly"],
+    "status": "Exploring",
+    "githubUrl": null,
+    "demoUrl": null
+  },
+  {
+    "id": 3,
+    "slug": "cloud-playground",
+    "title": "Cloud Playground",
+    "description": "A shared space to learn how services connect, scale and support real projects.",
+    "content": "Cloud Playground provides hands-on infrastructure experiments using containerization, microservices architecture, and cloud deployment pipelines. Members collaborate on building serverless backends, setting up CI/CD workflows, and testing cluster orchestration tools.",
+    "image": "/images/openlab/cloud-playground.jpg",
+    "category": "Cloud Computing",
+    "technologies": ["Docker", "Kubernetes", "AWS", "Terraform"],
+    "status": "Building",
+    "githubUrl": null,
+    "demoUrl": null
+  },
+  {
+    "id": 4,
+    "slug": "community-builds",
+    "title": "Community Builds",
+    "description": "Student-led ideas shaped through collaboration, feedback and hands-on practice.",
+    "content": "Community Builds empowers DSCC members to pitch, prototype, and ship real-world software applications together. From internal club tools to public student utilities, projects follow agile practices with regular code reviews, sprint planning, and mentorship.",
+    "image": "/images/openlab/community-builds.jpg",
+    "category": "Open Source",
+    "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    "status": "Growing",
+    "githubUrl": null,
+    "demoUrl": null
+  }
 ]

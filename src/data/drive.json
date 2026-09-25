@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "title": "Machine Learning Resources",
+    "description": "Courses, notes and resources for learning machine learning.",
+    "category": "Artificial Intelligence",
+    "image": "/images/drive/machine-learning.jpg",
+    "driveUrl": null,
+    "order": 1
+  }
+]

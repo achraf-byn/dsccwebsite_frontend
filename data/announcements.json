@@ -11,28 +11,6 @@
     "pinned": true
   },
   {
-    "id": 2,
-    "slug": "community-outing",
-    "title": "Community Outing",
-    "description": "A day to connect beyond workshops, meet new members and create memories together.",
-    "content": "We are making space for the conversations that happen away from the screen. The DSCC community outing is an opportunity to meet new members and spend time together outside our usual sessions.\n\nMore details about the meeting point and schedule will be shared with registered participants before the day.",
-    "category": "Events",
-    "date": "2026-09-12",
-    "image": "",
-    "pinned": false
-  },
-  {
-    "id": 3,
-    "slug": "new-season-of-workshops",
-    "title": "A new season of workshops is coming",
-    "description": "Practical sessions across data, AI and cloud computing are taking shape for the new season.",
-    "content": "This season brings a hands-on rhythm to the DSCC calendar, with sessions designed to help you move from concepts to working experiments.\n\nBring your questions, your laptop and your curiosity. Workshop dates and registration details will be announced as each session is confirmed.",
-    "category": "Workshops",
-    "date": "2026-09-06",
-    "image": "",
-    "pinned": false
-  },
-  {
     "id": 4,
     "slug": "openlab-project-ideas",
     "title": "OpenLab project ideas are open",

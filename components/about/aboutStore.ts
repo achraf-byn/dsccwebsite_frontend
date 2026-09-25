@@ -1,5 +1,3 @@
-import type { TeamMember } from './teamData'
-
 export type AboutContent = {
   hero: {
     eyebrow: string
@@ -10,7 +8,6 @@ export type AboutContent = {
     primaryButton: { label: string; href: string }
     secondaryButton: { label: string; href: string }
   }
-  team: TeamMember[]
 }
 
 export const defaultAboutContent: AboutContent = {
@@ -23,11 +20,6 @@ export const defaultAboutContent: AboutContent = {
     primaryButton: { label: 'Meet Our Team', href: '#team' },
     secondaryButton: { label: 'Explore Our Journey', href: '#journey' },
   },
-  team: [
-    { name: '', role: 'President', image: '', linkedin: '' },
-    { name: '', role: 'Vice-President', image: '', linkedin: '' },
-    { name: '', role: 'General Secretary', image: '', linkedin: '' },
-  ],
 }
 
 const STORAGE_KEY = 'dscc-about-content'
@@ -40,14 +32,12 @@ export function getAboutContent(): AboutContent {
     const parsed = JSON.parse(saved) as Partial<AboutContent>
     return {
       ...defaultAboutContent,
-      ...parsed,
       hero: {
         ...defaultAboutContent.hero,
         ...(parsed.hero ?? {}),
         primaryButton: { ...defaultAboutContent.hero.primaryButton, ...(parsed.hero?.primaryButton ?? {}) },
         secondaryButton: { ...defaultAboutContent.hero.secondaryButton, ...(parsed.hero?.secondaryButton ?? {}) },
       },
-      team: Array.isArray(parsed.team) ? parsed.team : defaultAboutContent.team,
     }
   } catch {
     return defaultAboutContent

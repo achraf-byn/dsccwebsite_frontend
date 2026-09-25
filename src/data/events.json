@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "slug": "ai-hackathon",
+    "title": "AI Hackathon",
+    "description": "Short description displayed on the event card.",
+    "content": "Full detailed event content displayed on the event detail page. Collaborate with developers, data enthusiasts, and designers to solve real-world challenges using cutting-edge artificial intelligence.",
+    "image": "/images/events/ai-hackathon.jpg",
+    "category": "Competition",
+    "date": "2026-10-15",
+    "time": "09:00",
+    "location": "ENSAO",
+    "status": "upcoming",
+    "registrationUrl": null
+  }
+]

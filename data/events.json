@@ -1,6 +1,72 @@
 [
-  { "id": 1, "title": "DSCC Community Outing", "image": "", "date": "2026-09-27", "location": "ENSAO", "category": "Community", "description": "A day to meet new members, reconnect and make room for the conversations beyond workshops.", "link": "" },
-  { "id": 2, "title": "Cloud Foundations Workshop", "image": "", "date": "2026-10-04", "location": "ENSAO Lab", "category": "Workshop", "description": "Build a practical foundation in cloud concepts through guided experiments and shared learning.", "link": "" },
-  { "id": 3, "title": "Data Challenge Meetup", "image": "", "date": "2026-10-18", "location": "To be announced", "category": "Competition", "description": "Bring your curiosity and work with other students on a focused data problem.", "link": "" },
-  { "id": 4, "title": "DSCC Kickoff Meetup", "image": "", "date": "2026-08-14", "location": "ENSAO", "category": "Community", "description": "The season began with introductions, shared questions and a first look at what we can build together.", "link": "", "past": true }
+  {
+    "id": 1,
+    "slug": "ai-hackathon",
+    "title": "AI Hackathon",
+    "description": "Short description displayed on the event card.",
+    "content": "Full detailed event content displayed on the event detail page. Collaborate with developers, data enthusiasts, and designers to solve real-world challenges using cutting-edge artificial intelligence.",
+    "image": "/images/events/ai-hackathon.jpg",
+    "category": "Competition",
+    "date": "2026-10-15",
+    "time": "09:00",
+    "location": "ENSAO",
+    "status": "upcoming",
+    "registrationUrl": null
+  },
+  {
+    "id": 2,
+    "slug": "dscc-community-outing",
+    "title": "DSCC Community Outing",
+    "description": "A day to meet new members, reconnect and make room for conversations beyond workshops.",
+    "content": "Join us for an informal community gathering designed to build connections across all technical levels. We will have icebreaker activities, open discussions on tech trends, and an interactive Q&A session with senior club members.",
+    "image": "/images/events/community-outing.jpg",
+    "category": "Community",
+    "date": "2026-09-27",
+    "time": "14:00",
+    "location": "ENSAO Campus",
+    "status": "upcoming",
+    "registrationUrl": null
+  },
+  {
+    "id": 3,
+    "slug": "cloud-foundations-workshop",
+    "title": "Cloud Foundations Workshop",
+    "description": "Build a practical foundation in cloud concepts through guided experiments and shared learning.",
+    "content": "An immersive hands-on session focusing on cloud service models, containerization basics, and serverless deployments. Participants will set up cloud environments and run real microservices step by step.",
+    "image": "/images/events/cloud-workshop.jpg",
+    "category": "Workshop",
+    "date": "2026-10-04",
+    "time": "10:00",
+    "location": "ENSAO Lab 2",
+    "status": "upcoming",
+    "registrationUrl": null
+  },
+  {
+    "id": 4,
+    "slug": "data-challenge-meetup",
+    "title": "Data Challenge Meetup",
+    "description": "Bring your curiosity and work with other students on a focused data problem.",
+    "content": "Participate in a collaborative data exploration challenge. Teams will analyze real-world datasets, build predictive models, and present key insights. Mentors will be present to offer guidance.",
+    "image": "/images/events/data-challenge.jpg",
+    "category": "Competition",
+    "date": "2026-10-18",
+    "time": "14:30",
+    "location": "ENSAO Auditorium",
+    "status": "upcoming",
+    "registrationUrl": null
+  },
+  {
+    "id": 5,
+    "slug": "dscc-kickoff-meetup",
+    "title": "DSCC Kickoff Meetup",
+    "description": "The season began with introductions, shared questions and a first look at what we can build together.",
+    "content": "We officially launched the new academic year with an introductory session presenting our annual vision, upcoming workshops, research tracks, and OpenLab collaborative projects.",
+    "image": "/images/events/kickoff-meetup.jpg",
+    "category": "Community",
+    "date": "2026-08-14",
+    "time": "15:00",
+    "location": "ENSAO",
+    "status": "past",
+    "registrationUrl": null
+  }
 ]

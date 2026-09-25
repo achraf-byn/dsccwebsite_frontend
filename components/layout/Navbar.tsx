@@ -1,5 +1,6 @@
 'use client'
 
+import { T, useLanguage } from '@/lib/i18n/LanguageProvider'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { CalendarDays, FlaskConical, FolderOpen, House, Info, Mail, Megaphone, Moon, Newspaper, Sun, X } from 'lucide-react'
 import { SiInstagram } from 'react-icons/si'
@@ -8,6 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import logoImage from '@/pictures/logo.png'
 import { useEffect, useState } from 'react'
+import LanguageSelector from './LanguageSelector'
 
 const navItems = [
   { label: 'Home', href: '/', icon: House },
@@ -27,12 +29,14 @@ function Logo() {
 }
 
 function ThemeToggle({ dark, onToggle }: { dark: boolean; onToggle: () => void }) {
-  return <button className="theme-toggle" type="button" onClick={onToggle} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={dark}>
+  const { t } = useLanguage()
+  return <button className="theme-toggle" type="button" onClick={onToggle} aria-label={t(dark ? 'Switch to light mode' : 'Switch to dark mode')} aria-pressed={dark}>
     <Sun size={13} aria-hidden="true" /><span className="theme-track"><motion.span className="theme-thumb" layout transition={{ duration: .25, ease: [.22, 1, .36, 1] }} /></span><Moon size={13} aria-hidden="true" />
   </button>
 }
 
 export default function Navbar() {
+  const { t } = useLanguage()
   const pathname = usePathname()
   const prefersReducedMotion = useReducedMotion()
   const [dark, setDark] = useState(false)
@@ -92,13 +96,14 @@ export default function Navbar() {
   return <header className={`site-navbar ${scrolled ? 'is-scrolled' : ''}`}>
     <div className="navbar-shell">
       <Logo />
-      <nav className="desktop-nav" aria-label="Primary navigation">
-        {navItems.map(item => { const active = isActive(item.href); return <Link key={item.href} href={item.href} className={active ? 'is-active' : ''} aria-current={active ? 'page' : undefined}>{active && <motion.span className="nav-active-pill" layoutId="dscc-active-nav-pill" transition={transition} aria-hidden="true" />}<span className="nav-link-label">{item.label}</span></Link> })}
+      <nav className="desktop-nav" aria-label={t('Primary navigation')}>
+        {navItems.map(item => { const active = isActive(item.href); return <Link key={item.href} href={item.href} className={active ? 'is-active' : ''} aria-current={active ? 'page' : undefined}>{active && <motion.span className="nav-active-pill" layoutId="dscc-active-nav-pill" transition={transition} aria-hidden="true" />}<span className="nav-link-label"><T>{item.label}</T></span></Link> })}
       </nav>
       <div className="navbar-actions">
+        <LanguageSelector />
         <ThemeToggle dark={dark} onToggle={toggleTheme} />
         <a className="icon-button instagram-button" href="https://www.instagram.com/clubdscc/" target="_blank" rel="noreferrer" aria-label="DSCC on Instagram"><SiInstagram size={18} /></a>
-        <motion.button className={`menu-button ${menuOpen ? 'is-open' : ''}`} type="button" onClick={() => setMenuOpen(value => !value)} aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="mobile-navigation" whileTap={{ scale: .94 }}>
+        <motion.button className={`menu-button ${menuOpen ? 'is-open' : ''}`} type="button" onClick={() => setMenuOpen(value => !value)} aria-label={t(menuOpen ? 'Close navigation' : 'Open navigation')} aria-expanded={menuOpen} aria-controls="mobile-navigation" whileTap={{ scale: .94 }}>
           <motion.span className="menu-line menu-line-top" animate={menuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }} transition={{ duration: .3, ease: [.22, 1, .36, 1] }} />
           <motion.span className="menu-line menu-line-bottom" animate={menuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }} transition={{ duration: .3, ease: [.22, 1, .36, 1] }} />
         </motion.button>
@@ -106,11 +111,11 @@ export default function Navbar() {
     </div>
     <AnimatePresence>
       {menuOpen && <>
-        <motion.button className="mobile-nav-backdrop" type="button" aria-label="Close navigation" onClick={closeMenu} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={drawerTransition} />
-        <motion.nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation" initial={{ opacity: 0.85, x: '100%', scale: .985 }} animate={{ opacity: 1, x: 0, scale: 1 }} exit={{ opacity: 0.85, x: '100%', scale: .985 }} transition={drawerTransition}>
-        <div className="mobile-nav-top"><div className="mobile-nav-top-actions"><ThemeToggle dark={dark} onToggle={toggleTheme} /><a className="mobile-nav-instagram" href="https://www.instagram.com/clubdscc/" target="_blank" rel="noreferrer" onClick={closeMenu} aria-label="DSCC on Instagram"><SiInstagram size={21} /></a><button className="mobile-nav-close" type="button" aria-label="Close navigation" onClick={closeMenu}><X size={23} /></button></div></div>
-        <div className="mobile-nav-links">{navItems.map(({ label, href, icon: Icon }) => { const active = isActive(href); return <motion.div key={href} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ ...transition, delay: prefersReducedMotion ? 0 : .05 }}><Link href={href} className={active ? 'is-active' : ''} aria-current={active ? 'page' : undefined} onClick={closeMenu}><Icon className="mobile-nav-link-icon" size={20} strokeWidth={1.8} aria-hidden="true" /><span className="nav-link-label">{label}</span>{active && <span className="mobile-nav-indicator" aria-hidden="true" />}</Link></motion.div> })}</div>
-        <div className="mobile-nav-footer"><div className="mobile-nav-motto">Students Today, Builders Tomorrow.</div></div>
+        <motion.button className="mobile-nav-backdrop" type="button" aria-label={t('Close navigation')} onClick={closeMenu} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={drawerTransition} />
+        <motion.nav id="mobile-navigation" className="mobile-nav" aria-label={t('Mobile navigation')} initial={{ opacity: 0.85, x: '100%', scale: .985 }} animate={{ opacity: 1, x: 0, scale: 1 }} exit={{ opacity: 0.85, x: '100%', scale: .985 }} transition={drawerTransition}>
+        <div className="mobile-nav-top"><div className="mobile-nav-top-actions"><ThemeToggle dark={dark} onToggle={toggleTheme} /><a className="mobile-nav-instagram" href="https://www.instagram.com/clubdscc/" target="_blank" rel="noreferrer" onClick={closeMenu} aria-label="DSCC on Instagram"><SiInstagram size={21} /></a><button className="mobile-nav-close" type="button" aria-label={t('Close navigation')} onClick={closeMenu}><X size={23} /></button></div></div>
+        <div className="mobile-nav-links">{navItems.map(({ label, href, icon: Icon }) => { const active = isActive(href); return <motion.div key={href} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ ...transition, delay: prefersReducedMotion ? 0 : .05 }}><Link href={href} className={active ? 'is-active' : ''} aria-current={active ? 'page' : undefined} onClick={closeMenu}><Icon className="mobile-nav-link-icon" size={20} strokeWidth={1.8} aria-hidden="true" /><span className="nav-link-label"><T>{label}</T></span>{active && <span className="mobile-nav-indicator" aria-hidden="true" />}</Link></motion.div> })}</div>
+        <div className="mobile-nav-footer"><div className="mobile-nav-motto"><T>Students Today, Builders Tomorrow.</T></div></div>
         </motion.nav>
       </>}
     </AnimatePresence>

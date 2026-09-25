@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "slug": "example-project",
+    "title": "Example Project",
+    "description": "Short card description.",
+    "content": "Full explanation of the project, experiment or research work.",
+    "image": "/images/openlab/example-project.jpg",
+    "category": "Artificial Intelligence",
+    "technologies": ["Python", "PyTorch"],
+    "status": "In Progress",
+    "githubUrl": null,
+    "demoUrl": null
+  }
+]

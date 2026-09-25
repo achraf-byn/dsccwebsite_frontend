@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Machine Learning Resources",
+    "description": "Courses, notes and resources for learning machine learning.",
+    "category": "Artificial Intelligence",
+    "image": "/images/drive/machine-learning.jpg",
+    "driveUrl": null,
+    "order": 1
+  },
+  {
+    "id": 2,
+    "title": "Data Science & Analysis",
+    "description": "A place for datasets, notebooks and learning references.",
+    "category": "Data Science",
+    "image": "/images/drive/data-science.jpg",
+    "driveUrl": null,
+    "order": 2
+  },
+  {
+    "id": 3,
+    "title": "Cloud Computing Foundations",
+    "description": "Resources for understanding cloud platforms and architecture.",
+    "category": "Cloud Computing",
+    "image": "/images/drive/cloud-computing.jpg",
+    "driveUrl": null,
+    "order": 3
+  },
+  {
+    "id": 4,
+    "title": "Data Engineering Pathways",
+    "description": "Foundations for moving, transforming and working with data.",
+    "category": "Data Engineering",
+    "image": "/images/drive/data-engineering.jpg",
+    "driveUrl": null,
+    "order": 4
+  },
+  {
+    "id": 5,
+    "title": "Full-Stack Development",
+    "description": "Practical references for building, shipping and collaborating.",
+    "category": "Development",
+    "image": "/images/drive/development.jpg",
+    "driveUrl": null,
+    "order": 5
+  },
+  {
+    "id": 6,
+    "title": "DSCC Workshop Materials",
+    "description": "Materials from shared sessions and hands-on activities.",
+    "category": "Workshops",
+    "image": "/images/drive/workshops.jpg",
+    "driveUrl": null,
+    "order": 6
+  }
+]
