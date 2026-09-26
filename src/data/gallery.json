@@ -3,7 +3,6 @@
     {
       "id": 1,
       "direction": "right",
-      "speed": 45,
       "images": [
         { "id": 1, "image": "/images/gallery/row-1/image-01.jpg", "alt": "DSCC activity" },
         { "id": 2, "image": "/images/gallery/row-1/image-02.jpg", "alt": "DSCC activity" },
@@ -20,7 +19,6 @@
     {
       "id": 2,
       "direction": "left",
-      "speed": 55,
       "images": [
         { "id": 1, "image": "/images/gallery/row-2/image-01.jpg", "alt": "DSCC activity" },
         { "id": 2, "image": "/images/gallery/row-2/image-02.jpg", "alt": "DSCC activity" },
@@ -37,7 +35,6 @@
     {
       "id": 3,
       "direction": "right",
-      "speed": 50,
       "images": [
         { "id": 1, "image": "/images/gallery/row-3/image-01.jpg", "alt": "DSCC activity" },
         { "id": 2, "image": "/images/gallery/row-3/image-02.jpg", "alt": "DSCC activity" },
@@ -47,8 +44,7 @@
         { "id": 6, "image": "/images/gallery/row-3/image-06.jpg", "alt": "DSCC activity" },
         { "id": 7, "image": "/images/gallery/row-3/image-07.jpg", "alt": "DSCC activity" },
         { "id": 8, "image": "/images/gallery/row-3/image-08.jpg", "alt": "DSCC activity" },
-        { "id": 9, "image": "/images/gallery/row-3/image-09.jpg", "alt": "DSCC activity" },
-        { "id": 10, "image": "/images/gallery/row-3/image-10.jpg", "alt": "DSCC activity" }
+        { "id": 9, "image": "/images/gallery/row-3/image-09.jpg", "alt": "DSCC activity" }
       ]
     }
   ]

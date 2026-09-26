@@ -9,15 +9,21 @@ import { animate, motion, useReducedMotion, useMotionValue } from 'framer-motion
 type GalleryImage = (typeof galleryData.rows)[number]['images'][number]
 type GalleryRowData = (typeof galleryData.rows)[number]
 
+const GALLERY_SPEED = 35 // pixels per second for every row
+
 function GalleryPhoto({ item, rowId, index }: { item: GalleryImage; rowId: number; index: number }) {
   const [imageFailed, setImageFailed] = useState(false)
 
+  if (imageFailed || !item.image.trim()) return null
+
   return <div className={`gallery-photo gallery-photo-${(index % 3) + 1}`}>
-    {imageFailed ? <div className="gallery-photo-placeholder" aria-label={`${item.alt} placeholder`}><span>DSCC</span><small><T>ADD PHOTO</T></small></div> : <Image src={item.image} alt={item.alt} fill sizes="(max-width: 767px) 42vw, (max-width: 1100px) 27vw, 240px" className="gallery-photo-image" onError={() => setImageFailed(true)} priority={rowId === 1 && index < 2} />}
+    <Image src={item.image} alt={item.alt} fill sizes="(max-width: 767px) 42vw, (max-width: 1100px) 27vw, 240px" className="gallery-photo-image" onError={() => setImageFailed(true)} priority={rowId === 1 && index < 2} />
   </div>
 }
 
 function GalleryRow({ row }: { row: GalleryRowData }) {
+  const validImages = row.images.filter((item) => item.image && item.image.trim() !== '')
+  const loopImages = validImages.length ? Array.from({ length: Math.max(validImages.length, 10) }, (_, index) => validImages[index % validImages.length]) : []
   const reduce = useReducedMotion()
   const x = useMotionValue(0)
   const trackRef = useRef<HTMLDivElement>(null)
@@ -59,7 +65,7 @@ function GalleryRow({ row }: { row: GalleryRowData }) {
       // Set A and Set B are identical, so this boundary swap is visually seamless.
       x.set(loopStart)
       animationRef.current = animate(x, [loopStart, boundary], {
-        duration: row.speed,
+        duration: distance / GALLERY_SPEED,
         ease: 'linear',
         onComplete: startFullLoop,
       })
@@ -70,7 +76,7 @@ function GalleryRow({ row }: { row: GalleryRowData }) {
     } else {
       // Resume from the exact paused visual position, then continue at the normal speed.
       animationRef.current = animate(x, [current, boundary], {
-        duration: row.speed * (remaining / distance),
+        duration: remaining / GALLERY_SPEED,
         ease: 'linear',
         onComplete: startFullLoop,
       })
@@ -81,7 +87,7 @@ function GalleryRow({ row }: { row: GalleryRowData }) {
       animationRef.current?.stop()
       animationRef.current = null
     }
-  }, [distance, paused, reduce, row.direction, row.speed, x])
+  }, [distance, paused, reduce, row.direction, x])
 
   useEffect(() => () => { if (resumeTimer.current) window.clearTimeout(resumeTimer.current) }, [])
 
@@ -142,9 +148,11 @@ function GalleryRow({ row }: { row: GalleryRowData }) {
     resumeRow()
   }
 
+  if (!loopImages.length) return null
+
   return <div className={`gallery-row gallery-row-${row.id}`} onMouseEnter={pauseRow} onMouseLeave={resumeRow} onWheel={onWheel} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp}>
     <motion.div className="gallery-track" style={{ x }} ref={trackRef}>
-      {[false, true].map((duplicate) => <div className="gallery-set" key={duplicate ? 'duplicate' : 'original'} ref={duplicate ? undefined : setRef} aria-hidden={duplicate || undefined}>{row.images.map((item, index) => <GalleryPhoto item={item} rowId={row.id} index={index} key={`${duplicate ? 'copy-' : ''}${item.id}`} />)}</div>)}
+      {[false, true].map((duplicate) => <div className="gallery-set" key={duplicate ? 'duplicate' : 'original'} ref={duplicate ? undefined : setRef} aria-hidden={duplicate || undefined}>{loopImages.map((item, index) => <GalleryPhoto item={item} rowId={row.id} index={index} key={`${duplicate ? 'copy-' : ''}${index}-${item.id}`} />)}</div>)}
     </motion.div>
   </div>
 }

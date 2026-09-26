@@ -13,7 +13,6 @@ export default function HomeTeamPreview() {
     <motion.div className="home-team-intro" initial={{ opacity: 0, y: 18 }} animate={inView ? { opacity: 1, y: 0 } : undefined} transition={{ duration: .45, delay: reduce ? 0 : .08 }}>
       <span className="home-section-eyebrow"><T>OUR TEAM</T></span>
       <h2 id="home-team-title"><T>Meet the People Behind </T><span><T>DSCC.</T></span></h2>
-      <p><T>The students behind the workshops, projects, events and opportunities that keep our community moving forward.</T></p>
     </motion.div>
     <TeamCarousel className="home-team-carousel" />
   </div></section>

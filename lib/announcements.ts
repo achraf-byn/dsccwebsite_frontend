@@ -1,4 +1,4 @@
-import announcementsJson from '@/data/announcements.json'
+import announcementsJson from '@/src/data/announcements.json'
 import type { Announcement } from '@/types/announcement'
 
 const announcements = announcementsJson as Announcement[]

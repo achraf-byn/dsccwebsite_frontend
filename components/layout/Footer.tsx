@@ -4,7 +4,7 @@ import { T } from '@/lib/i18n/LanguageProvider'
 import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaLinkedinIn, FaTiktok, FaXTwitter } from 'react-icons/fa6'
+import { FaFacebookF, FaLinkedinIn, FaTiktok, FaXTwitter } from 'react-icons/fa6'
 import { SiInstagram } from 'react-icons/si'
 import logoImage from '@/pictures/logo.png'
 import { clubData } from '@/lib/club'
@@ -36,6 +36,7 @@ export default function Footer() {
           {[
             { label: 'Instagram', url: clubData.socials.instagram, icon: SiInstagram },
             { label: 'LinkedIn', url: clubData.socials.linkedin, icon: FaLinkedinIn },
+            { label: 'Facebook', url: clubData.socials.facebook, icon: FaFacebookF },
             { label: 'TikTok', url: clubData.socials.tiktok, icon: FaTiktok },
             { label: 'X', url: clubData.socials.x, icon: FaXTwitter },
           ].map(({ label, url, icon: Icon }) => {

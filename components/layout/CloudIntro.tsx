@@ -43,6 +43,7 @@ export default function CloudIntro() {
     } catch {
       // Storage can be blocked in private browsing; the intro still runs once per mount.
     }
+    setShowIntro(true)
     const timeout = window.setTimeout(() => setShowIntro(false), prefersReducedMotion ? 900 : 5000)
     return () => window.clearTimeout(timeout)
   }, [prefersReducedMotion])

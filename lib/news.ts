@@ -1,4 +1,4 @@
-import newsJson from '@/data/news.json'
+import newsJson from '@/src/data/news.json'
 import type { NewsItem } from '@/types/siteContent'
 
 const news = newsJson as NewsItem[]

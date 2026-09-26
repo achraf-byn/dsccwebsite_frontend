@@ -5,7 +5,7 @@ import { T } from '@/lib/i18n/LanguageProvider'
 import { motion } from 'framer-motion'
 import { MessageCircle, Send, AlertCircle } from 'lucide-react'
 import { SiInstagram } from 'react-icons/si'
-import { FaLinkedinIn, FaTiktok } from 'react-icons/fa6'
+import { FaFacebookF, FaLinkedinIn, FaTiktok } from 'react-icons/fa6'
 import { clubData } from '@/lib/club'
 
 export function ContactPage() {
@@ -193,6 +193,24 @@ Best regards`
                 <span className="contact-social-btn is-disabled" aria-label="LinkedIn link not configured">
                   <FaLinkedinIn size={18} />
                   <span>LinkedIn</span>
+                </span>
+              )}
+
+              {clubData.socials.facebook ? (
+                <a
+                  href={clubData.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-social-btn"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookF size={18} />
+                  <span>Facebook</span>
+                </a>
+              ) : (
+                <span className="contact-social-btn is-disabled" aria-label="Facebook link not configured">
+                  <FaFacebookF size={18} />
+                  <span>Facebook</span>
                 </span>
               )}
 

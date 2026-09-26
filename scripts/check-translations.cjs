@@ -23,8 +23,8 @@ for (const file of files) {
   }
   visit(ast)
 }
-for (const name of ['announcements', 'events', 'news', 'openlab', 'resources']) {
-  for (const item of JSON.parse(fs.readFileSync(`data/${name}.json`, 'utf8'))) {
+for (const name of ['announcements', 'events', 'news', 'openlab', 'drive']) {
+  for (const item of JSON.parse(fs.readFileSync(`src/data/${name}.json`, 'utf8'))) {
     for (const field of ['title', 'name', 'description', 'excerpt', 'content', 'category', 'status', 'type']) {
       if (!item[field]) continue
       for (const part of item[field].split(/\n\n+/)) if (!has(normalize(part))) missing.add(normalize(part))

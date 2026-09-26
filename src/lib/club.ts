@@ -9,6 +9,7 @@ export type ClubData = {
   socials: {
     instagram: string
     linkedin: string
+    facebook: string
     tiktok: string
     x: string
   }
